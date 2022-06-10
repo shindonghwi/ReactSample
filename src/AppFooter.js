@@ -1,11 +1,14 @@
-import React, {Component, Fragment} from 'react'
+import React, { Component, Fragment } from 'react'
 
-export default class AppFooter extends Component{
+export default class AppFooter extends Component {
     render() {
+
+        const currentYear = new Date().getFullYear()
+
         return (
             <Fragment>
-                <hr/>
-                <p>Copyright &copy; 2022 ShinDonghwi.</p>    
+                <hr />
+                <p>Copyright &copy; { currentYear}  ShinDonghwi.</p>
             </Fragment>
         )
     }

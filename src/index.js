@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import AppFooter from './AppFooter'
-
+import AppHeader from './AppHeader'
+import AppContent from './AppContent'
+import 'bootstrap/dist/css/bootstrap.min.css'
 class App extends Component {
 
   render() {
     return (
       <div>
-        <div>
-          <h1>Hello World</h1>
-        </div>
+        <AppHeader title = "My App!"/>
+        <AppContent/>
         <AppFooter/>
       </div>
     )
