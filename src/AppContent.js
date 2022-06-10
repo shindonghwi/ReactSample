@@ -4,6 +4,10 @@ import React, { Component } from "react"
 
 export default class AppContent extends Component{
  
+    mouseFunction = () => {
+        console.log("mouse funtion")
+    }
+
     fetchList = () => {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
@@ -25,7 +29,11 @@ export default class AppContent extends Component{
                 This is the content.
 
                 <br/>
+                <hr/>
+                <p onMouseEnter={this.mouseFunction}>This is some Text</p>
                 <button onClick = {this.fetchList} className="btn btn-primary">Fetch Data</button>
+
+
 
                 <ul id ="post-list"></ul>
             </p>
