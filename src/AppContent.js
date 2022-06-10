@@ -3,7 +3,7 @@ import React, { Component } from "react"
 
 
 export default class AppContent extends Component{
-
+ 
     fetchList = () => {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
