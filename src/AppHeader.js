@@ -11,7 +11,6 @@ export default class AppHeader extends Component {
                 <h1> {this.props.subject}</h1>
                 <h1> {this.props.myColor}</h1>
             </Fragment>
-
         )
     }
 
