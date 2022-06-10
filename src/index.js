@@ -7,9 +7,17 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 class App extends Component {
 
   render() {
+
+    const myProps = {
+      title: "ShinDongHwi App",
+      subject: "ShinDongHwi Subject",
+      myColor: "Orange",
+
+    }
+
     return (
       <div>
-        <AppHeader title = "My App!"/>
+        <AppHeader {...myProps}/>
         <AppContent/>
         <AppFooter/>
       </div>
