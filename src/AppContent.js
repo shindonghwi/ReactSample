@@ -2,12 +2,9 @@ import { Button } from "bootstrap"
 import React, { Component } from "react"
 
 
-export default class AppContent extends Component{
- 
-    constructor(props){
-        super(props)
-        this.listRef = React.createRef()
-    }
+export default class AppContent extends Component {
+
+    state = { posts: [] }
 
     mouseFunction = () => {
         console.log("mouse funtion")
@@ -17,29 +14,33 @@ export default class AppContent extends Component{
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
             .then(json => {
-                console.log(json)
-                const posts = this.listRef.current
-                json.forEach(function(obj){
-                    let li = document.createElement("li")
-                    li.appendChild(document.createTextNode(obj.title))
-                    posts.appendChild(li)
-                })
+                this.setState({ posts: json })
             })
     }
 
-    render(){
+    clickedItem = (x) => {
+        console.log("clicked", x)
+    }
+
+    render() {
         return (
             <p>
                 This is the content.
 
-                <br/>
-                <hr/>
+                <br />
+                <hr />
                 <p onMouseEnter={this.mouseFunction}>This is some Text</p>
-                <button onClick = {this.fetchList} className="btn btn-primary">Fetch Data</button>
+                <button onClick={this.fetchList} className="btn btn-primary">Fetch Data</button>
 
+                <h3>item size: {this.state.posts.length}</h3>
 
-
-                <ul ref={this.listRef}></ul>
+                <ul>
+                    {this.state.posts.map((c) => (
+                        <li key={c.id}>
+                            <a href="#!" onClick={() => this.clickedItem(c.id)}>{c.title}</a>
+                        </li>
+                    ))}
+                </ul>
             </p>
         )
     }
